@@ -1,0 +1,76 @@
+{% extends 'hotel/base.html' %}
+
+{% block title %}Contact NestAway Suites{% endblock %}
+
+{% block head %}
+  <style>
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 1rem 3rem;
+    }
+    h1 {
+      margin: 0 0 1rem;
+      font-size: clamp(2rem, 3vw, 2.75rem);
+    }
+    p {
+      margin: 0 0 1.2rem;
+      color: #475569;
+      line-height: 1.8;
+    }
+    .contact-card {
+      border-radius: 22px;
+      background: white;
+      padding: 2rem;
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.06);
+    }
+    .contact-card h2 {
+      margin-top: 0;
+      font-size: 1.15rem;
+      color: #111827;
+    }
+    .contact-item {
+      margin-top: 1rem;
+    }
+    .contact-item strong {
+      display: block;
+      margin-bottom: 0.4rem;
+      color: #111827;
+    }
+    .contact-item span {
+      display: block;
+      color: #475569;
+      word-break: break-word;
+    }
+    .page-footer {
+      margin-top: 2rem;
+      color: #64748b;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <div class="page">
+    <h1>Contact NestAway Suites</h1>
+    <p>If you have questions about our hotel management dashboards, booking flow, or need help setting up, we’d love to hear from you.</p>
+    <div class="contact-card">
+      <div class="contact-item">
+        <strong>Email</strong>
+        <span>support@nestaway-suites.local</span>
+      </div>
+      <div class="contact-item">
+        <strong>Phone</strong>
+        <span>+1 (555) 123-4567</span>
+      </div>
+      <div class="contact-item">
+        <strong>Address</strong>
+        <span>125 Hospitality Drive, Suite 100, Room City, CA 90210</span>
+      </div>
+      <div class="contact-item">
+        <strong>Support hours</strong>
+        <span>Monday - Friday, 9:00 AM - 6:00 PM</span>
+      </div>
+    </div>
+    <div class="page-footer">NestAway Suites · Built with Django</div>
+  </div>
+{% endblock %}

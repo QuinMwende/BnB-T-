@@ -1,0 +1,84 @@
+{% extends 'hotel/base.html' %}
+
+{% block title %}About NestAway Suites{% endblock %}
+
+{% block head %}
+  <style>
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 1rem 3rem;
+    }
+    .page h1 {
+      font-size: clamp(2.25rem, 3vw, 3rem);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.03em;
+    }
+    .page p {
+      color: #475569;
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+      max-width: 34rem;
+    }
+    .section {
+      margin-top: 2rem;
+    }
+    .section h2 {
+      margin-bottom: 0.75rem;
+      font-size: 1.15rem;
+      color: #111827;
+    }
+    .section p {
+      margin: 0;
+    }
+    .meta-list {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .meta-item {
+      padding: 1.25rem 1.35rem;
+      border-radius: 18px;
+      background: white;
+      box-shadow: 0 15px 40px rgba(15, 23, 42, 0.06);
+    }
+    .meta-item strong {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #111827;
+    }
+    .page-footer {
+      margin-top: 3rem;
+      color: #64748b;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <div class="page">
+    <h1>About NestAway Suites</h1>
+    <p>We build hotel operations tools that simplify room management and booking workflows. NestAway Suites is designed to give property managers a clear view of occupancy, availability, and guest stays in one modern dashboard.</p>
+    <div class="section">
+      <h2>Our mission</h2>
+      <p>To make hospitality operations effortless by giving teams accurate status updates, faster reservation handling, and a simple interface they can trust.</p>
+    </div>
+    <div class="section">
+      <h2>What we offer</h2>
+      <div class="meta-list">
+        <div class="meta-item">
+          <strong>Room status tracking</strong>
+          <p>Monitor available, occupied, and cleaning rooms instantly from a central view.</p>
+        </div>
+        <div class="meta-item">
+          <strong>Booking management</strong>
+          <p>Book room stays quickly while keeping guest data and payment details organized.</p>
+        </div>
+        <div class="meta-item">
+          <strong>Operations-ready</strong>
+          <p>Built for staff productivity with responsive layouts and actionable insights.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-footer">NestAway Suites · Built with Django</div>
+  </div>
+{% endblock %}

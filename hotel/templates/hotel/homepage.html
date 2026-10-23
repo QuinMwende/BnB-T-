@@ -1,0 +1,133 @@
+{% extends 'hotel/base.html' %}
+
+{% block title %}NestAway Suites{% endblock %}
+
+{% block head %}
+  <style>
+    body {
+      background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+    }
+    .hero {
+      min-height: calc(100vh - 88px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    .brand-logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      margin-bottom: 1rem;
+      border-radius: 18px;
+      background: #2563eb;
+      color: white;
+      box-shadow: 0 20px 50px rgba(37, 99, 235, .18);
+      font-size: 2rem;
+    }
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      line-height: 1.05;
+    }
+    .hero p {
+      max-width: 640px;
+      margin: 1.5rem auto 2rem;
+      color: #475569;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.95rem 1.6rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .cta.primary {
+      background: #2563eb;
+      color: white;
+      box-shadow: 0 14px 30px rgba(37, 99, 235, .18);
+    }
+    .cta.secondary {
+      background: #f8fafc;
+      color: #1f2937;
+      border: 1px solid #cbd5e1;
+    }
+    .cta:hover {
+      transform: translateY(-1px);
+    }
+    .features {
+      max-width: 980px;
+      margin: 0 auto 3rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .feature-card {
+      padding: 1.35rem;
+      border-radius: 24px;
+      background: white;
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.06);
+      text-align: left;
+    }
+    .feature-card h3 {
+      margin: 0 0 0.75rem;
+      font-size: 1.05rem;
+    }
+    .feature-card p {
+      margin: 0;
+      color: #475569;
+      line-height: 1.7;
+    }
+    .footer {
+      text-align: center;
+      padding-bottom: 2rem;
+      color: #64748b;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <main class="hero">
+    <div class="brand-logo">🏨</div>
+    <h1>Welcome to NestAway Suites</h1>
+    <p>Manage your rooms, bookings, and guest stays from one polished dashboard. Find availability, view current occupancy, and launch quick bookings with a single click.</p>
+    <div class="cta-group">
+      <a class="cta primary" href="{% url 'dashboard' %}">Open Dashboard</a>
+      <a class="cta secondary" href="{% url 'get_rooms' %}">View Rooms API</a>
+    </div>
+  </main>
+  <section class="features">
+    <div class="feature-card">
+      <h3>Real-time room status</h3>
+      <p>See available, occupied, and cleaning rooms at a glance so your team can move faster.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Quick booking flow</h3>
+      <p>Create reservations immediately from the dashboard and keep guest details synchronized.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Guest-first experience</h3>
+      <p>Deliver a smoother stay with fast check-ins, reliable housekeeping status, and better visibility.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Styled for the web</h3>
+      <p>Built for responsive desktop and mobile use.</p>
+    </div>
+  </section>
+  <footer class="footer">NestAway Suites · Built with Django</footer>
+{% endblock %}

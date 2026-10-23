@@ -1,0 +1,111 @@
+{% extends 'hotel/base.html' %}
+{% load static %}
+
+{% block title %}NestAway Suites — Room Management{% endblock %}
+
+{% block head %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <link rel="stylesheet" href="{% static 'hotel/dashboard.css' %}" />
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="brand">
+      <div class="logo"><i class="ti ti-home"></i></div>
+      <div>
+        <div class="brand-name">NestAway Suites</div>
+        <div class="brand-sub">Room Management — HS-01 to HS-30</div>
+      </div>
+    </div>
+    <div class="live-tag"><i class="ti ti-clock"></i> Live dashboard</div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-label"><i class="ti ti-building"></i> Total rooms</div>
+      <div class="stat-value blue">30</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label"><i class="ti ti-door-enter"></i> Available</div>
+      <div class="stat-value green" id="count-free">0</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label"><i class="ti ti-user-check"></i> Occupied</div>
+      <div class="stat-value red" id="count-occupied">0</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label"><i class="ti ti-refresh"></i> Cleaning</div>
+      <div class="stat-value amber" id="count-cleaning">0</div>
+    </div>
+  </div>
+
+  <!-- Filters -->
+  <div class="filters">
+    <button class="filter-btn active" onclick="filterRooms('all', this)">All</button>
+    <button class="filter-btn" onclick="filterRooms('free', this)">Available</button>
+    <button class="filter-btn" onclick="filterRooms('occupied', this)">Occupied</button>
+    <button class="filter-btn" onclick="filterRooms('cleaning', this)">Cleaning</button>
+    <div class="search-wrap">
+      <input type="text" placeholder="Search HS-..." oninput="searchRooms(this.value)" />
+    </div>
+  </div>
+
+  <!-- Rooms Grid -->
+  <div class="rooms-grid" id="rooms-grid"></div>
+
+  <!-- Perks -->
+  <div class="section-title"><i class="ti ti-sparkles"></i> Room perks & amenities</div>
+  <div class="perks-grid">
+    <div class="perk-card">
+      <div class="perk-icon wifi"><i class="ti ti-wifi"></i></div>
+      <div class="perk-name">High-speed WiFi</div>
+      <div class="perk-desc">500Mbps fibre, every room — stream and work without interruption</div>
+    </div>
+    <div class="perk-card">
+      <div class="perk-icon shower"><i class="ti ti-droplet"></i></div>
+      <div class="perk-name">Hot shower</div>
+      <div class="perk-desc">24/7 instant hot water with rainfall showerhead and steady pressure</div>
+    </div>
+    <div class="perk-card">
+      <div class="perk-icon service"><i class="ti ti-headset"></i></div>
+      <div class="perk-name">Customer service</div>
+      <div class="perk-desc">Friendly concierge available around the clock for any request</div>
+    </div>
+    <div class="perk-card">
+      <div class="perk-icon security"><i class="ti ti-shield-check"></i></div>
+      <div class="perk-name">Safe & secure</div>
+      <div class="perk-desc">Key-card access, in-room safe, and 24/7 CCTV in shared areas</div>
+    </div>
+  </div>
+
+  <!-- Bottom Row -->
+  <div class="bottom-row">
+    <!-- Notifications -->
+    <div class="panel">
+      <div class="panel-title">
+        <i class="ti ti-bell"></i> Notifications
+        <span class="notif-badge" id="notif-count">0</span>
+        <button class="clear-btn" onclick="clearNotifs()">Clear all</button>
+      </div>
+      <div class="notif-list" id="notif-list">
+        <div style="font-size:13px;color:#999;text-align:center;padding:20px 0;">No notifications yet</div>
+      </div>
+    </div>
+
+    <!-- Booking -->
+    <div class="panel">
+      <div class="panel-title"><i class="ti ti-calendar-plus"></i> Quick booking</div>
+      <div class="selected-info" id="selected-info">Click on an available room to book it</div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{% static 'hotel/dashboard.js' %}"></script>
+{% endblock %}
